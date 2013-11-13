@@ -1,0 +1,19 @@
+<h1>Create Account<h1>
+
+<% if @user.errors.any? %>
+  <h3>Please correct these problems.</h3>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div class="field"><%= f.text_field :name, :placeholder => "Name", :size => 25 %></div>
+  <div class="field"><%= f.text_field :email, :placeholder => "Email", :size => 25 %></div>
+  <div class="field"><%= f.text_field :password, :placeholder => "Password", :size => 25 %></div>
+  <div class="field"><%= f.text_field :password_confirmation, :placeholder => "Password Confirmation", :size => 25 %></div>
+  <div class="field"><%= f.submit 'Sign Up' %>
+<% end %>
+

@@ -1,0 +1,22 @@
+<br>
+<strong><%= @post.title %></strong>  <small>(<%= link_to @post.url, "http://#{@post.url}" %>)</small><br>
+
+<small>
+<%= pluralize(@post.votes.count, 'vote') %> |
+<%= link_to @post.user.email,  @post.user %> |
+<%= @post.created_at.to_formatted_s(:long_ordinal)  %> 
+</small>
+<%= render 'comments/form' %>
+
+<h4>Comments:</h4>
+<ul>
+  <%# @post.comments.each do |comment| %>
+    <%#= render 'comments/comment', :comment => comment %>
+  <%# end %>
+
+  <%# @post.comments.each do |comment| %>
+    <%#= render comment %>
+  <%# end %>
+  <%= render @post.comments %>
+</ul>
+

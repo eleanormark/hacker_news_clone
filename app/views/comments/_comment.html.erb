@@ -1,0 +1,8 @@
+<li><%= comment.content %> <br> <small><%= comment.created_at.to_formatted_s(:long_ordinal)  %> | <%= link_to comment.user.email, user_path(comment.user.id) %> | <%= link_to "Reply", new_comment_path(commentable_id: comment.id, commentable_type: Comment) %> </small>
+  <ul>
+    <% comment.comments.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  </ul>
+</li>
+   

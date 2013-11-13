@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HackerClone2</title>
+  <%#= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= flash[:alert] %>
+  <br>
+  <% if current_user %>
+    Logged in as <%= link_to current_user.email, user_path(current_user)%> |
+    <%= link_to "Log Out", logout_path %>
+  <% else %>
+    <%= link_to "Sign Up", signup_path %> or
+    <%= link_to "Log In", login_path %>
+  <% end %>
+  | <%= link_to "All Posts", posts_path %><br>
+<%= yield %>
+
+</body>
+</html>
