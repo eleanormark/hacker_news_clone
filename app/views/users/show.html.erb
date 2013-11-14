@@ -1,8 +1,5 @@
 <h1>Welcome <%= @user.name %>!</h1>
 
-
-<%= flash[:notice] %>
-
 <p>Email: <%= @user.email %></p>
 <p>Created: <%= @user.created_at.to_formatted_s(:long_ordinal)  %></p>
 <% if @user.posts.any? %>
@@ -11,6 +8,6 @@
       <li><b><%= p.title %></b> | <%= p.url %></li>
     <% end %>
   </ol>
-  <% else %>
-      <p>You don't have any posts. <%= link_to 'Create one now', new_post_path %></p>
-  <% end %>
+<% else %>
+  <p>You don't have any posts. <%= link_to 'Create one now', new_post_path %></p>
+<% end %>
