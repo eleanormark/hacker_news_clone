@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
   has_many :comments, :as => :commentable
 
   
-	def post
-		self.commentable.is_a?(Post) ? self.commentable : self.commentable.post
-	end
+  def post
+    self.commentable.is_a?(Post) ? self.commentable : self.commentable.post
+  end
 end
