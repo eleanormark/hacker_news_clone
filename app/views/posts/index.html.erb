@@ -3,12 +3,10 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <%#= button_to "▲", :action => "create", :controller => "votes", :vote => { :post_id => post.id } %> 
       <%= link_to '▲', votes_path(:vote => {:post_id => post.id, :up => true}), :method => :post %> |
       <%= link_to '▼', votes_path(:vote => {:post_id => post.id, :up => false}), :method => :post %> |
       Votes: <%= post.votes.where(:up => true).count - post.votes.where(:up => false).count %> | 
        <%= link_to post.url, "http://#{post.url}" %> | <%= post.title %> | <%=link_to post.user.name, user_path(post.user_id) %> | <%= post.created_at.to_formatted_s(:long_ordinal)  %> 
-      <%#= link_to "comments", new_comment_path(:commentable_id => post.id, :commentable_type => Post) %>
       <%= link_to "comments", post %>
     </li>
   <% end %>
