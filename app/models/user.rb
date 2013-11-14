@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
   validates :name, :presence => true
-  validates :email, :presence => true
-  validates_uniqueness_of :email
+  validates :email, :presence => true, :uniqueness => true
+
   has_secure_password
-  validates_uniqueness_of :email
 end
